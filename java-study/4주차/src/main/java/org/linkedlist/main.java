@@ -1,2 +1,4 @@
-package main.java.org.linkedlist;public class main {
+package main.java.org.linkedlist;
+
+public class main {
 }
