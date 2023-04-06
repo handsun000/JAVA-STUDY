@@ -1,30 +1,65 @@
-package main.java.org.example;
+package main.java.org.stack;
+
+import java.rmi.server.ExportException;
+import java.sql.SQLOutput;
 
 public class Stack {
 
-    private
-    private int size = 0;
+    private int arr[];
+    private int top;
+    private int capacity;
 
-    public void push(Object input) {
-
+    public Stack(int size) {
+        arr = new int[size];
+        capacity = size;
+        top = -1;
     }
 
-    public Object pop(Object input) {
-
-        return true;
+    public void push(int input) {
+        if (isFull()) {
+            System.out.println("가득참");
+            System.exit(-1);
+        }
+        arr[++top] = input;
     }
 
-    public Object peek(Object input) {
-        return true;
+    public Object pop() {
+
+        if (isEmpty()) {
+            System.out.println("비었음");
+            System.exit(-1);
+        }
+
+        return arr[top--];
     }
 
-    public boolean empty() {
-
-        return true;
+    public Object peek() {
+        if (isEmpty()) {
+            System.out.println("비었음");
+            System.exit(-1);
+        }
+        return arr[top];
     }
 
-    public Object search(Object input) {
 
-        return true;
+    public Object search(int input) {
+        if (input>top || isEmpty()){
+            System.out.println("찾을수 없음");
+            System.exit(-1);
+        }
+
+        return arr[input];
+    }
+
+    public int size() {
+        return capacity;
+    }
+
+    private boolean isFull() {
+        return top == capacity -1;
+    }
+
+    private boolean isEmpty() {
+        return top == -1;
     }
 }
