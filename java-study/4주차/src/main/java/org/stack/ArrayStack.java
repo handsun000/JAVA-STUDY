@@ -1,15 +1,12 @@
 package main.java.org.stack;
 
-import java.rmi.server.ExportException;
-import java.sql.SQLOutput;
-
-public class Stack {
+public class ArrayStack {
 
     private int arr[];
     private int top;
     private int capacity;
 
-    public Stack(int size) {
+    public ArrayStack(int size) {
         arr = new int[size];
         capacity = size;
         top = -1;
