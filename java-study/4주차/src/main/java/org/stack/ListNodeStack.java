@@ -2,6 +2,7 @@ package main.java.org.stack;
 
 public class ListNodeStack {
     private Node top;
+    private int capacity = 0;
 
     public ListNodeStack() {
         this.top = null;
@@ -32,12 +33,19 @@ public class ListNodeStack {
         Node node = new Node(data);
         node.linkNode(top);
         top = node;
+        capacity++;
     }
-    public void pop() {
+    public Object pop() {
         top = top.getNextNode();
+        capacity--;
+        return top.data;
     }
     public Object peek() {
         return top.getData();
+    }
+
+    public Object size() {
+        return capacity;
     }
 
 }
